@@ -64,15 +64,15 @@ INTERNAL_IPS = [
 ROOT_URLCONF = 'evently.urls'
 # CORS_URLS_REGEX = r"^/api/.*$"
 CORS_ALLOWED_ORIGINS = []
-CSRF_TRUSTED_ORIGINS = []
+
 ENV_CORS_ALLOWED_ORIGINS = str(config("CORS_ALLOWED_ORIGINS", cast=str, default=""))
 for origin in ENV_CORS_ALLOWED_ORIGINS.split(","):
     CORS_ALLOWED_ORIGINS.append(f"{origin}".strip().lower())
-    CSRF_TRUSTED_ORIGINS.append(f"{origin}".strip().lower())
 
 
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [".railway.app"]
+CSRF_TRUSTED_ORIGINS = ["https://*.railway.app","http://*.railway.app"]
 
 REST_FRAMEWORK = {
     "COERCE_DECIMAL_TO_STRING": False,
