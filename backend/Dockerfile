@@ -29,6 +29,8 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     # libcairo2 for CairoSVG
     libcairo2 \
+    # other
+    gcc \
     && rm -rf /var/lib/apt/lists/*
 
 # --- 3. Project Setup ---
